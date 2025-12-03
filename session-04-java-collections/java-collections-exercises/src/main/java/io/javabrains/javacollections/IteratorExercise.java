@@ -16,8 +16,12 @@ public class IteratorExercise {
         System.out.println("Iterating over fruits with iterator.next():");
         Iterator<String> iterator = fruits.iterator();
         while (iterator.hasNext()) {
+            System.out.println("Current fruits collection: " + fruits);
             String fruit = iterator.next();
             System.out.println(fruit);
+            if (fruit.equals("banana")) {
+                iterator.remove(); // Safe removal using iterator's remove method
+            }
 //            fruits.add("orange"); // This will cause ConcurrentModificationException on next iterator.next() call
 //            fruits.add("grape");
 //            System.out.println("fruits after adding: " + fruits);
