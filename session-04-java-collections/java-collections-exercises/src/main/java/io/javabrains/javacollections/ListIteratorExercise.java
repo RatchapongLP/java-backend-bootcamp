@@ -28,8 +28,26 @@ public class ListIteratorExercise {
         System.out.println();
 
         while (iterator.hasPrevious()) {
+            System.out.println("Current List: " + list + ", size: " + list.size());
+
+            int index = iterator.previousIndex();
             String item = iterator.previous();
-            System.out.println("Reverse: " + item);
+            System.out.println("index: " + index + ", Item: " + item);
+
+//            System.out.println("Reverse: " + item);
+
+            iterator.remove(); // Must be called ONCE and AFTER a call to next() or previous()
+            System.out.println("List after 1st removal: " + list + ", size: " + list.size());
+
+            iterator.add("New Item " + (index + 1)); // Can be called multiple times
+            iterator.add("New Item " + (index + 2));
+            System.out.println("List after additions: " + list + ", size: " + list.size());
+
+            iterator.previous();
+            iterator.remove();
+            iterator.previous();
+            iterator.remove();
+            System.out.println("List after cleanup removals: " + list + ", size: " + list.size() + "\n");
         }
     }
 }
