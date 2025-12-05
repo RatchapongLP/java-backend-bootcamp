@@ -19,6 +19,7 @@ public class ListIteratorExercise {
 
         ListIterator<String> iterator = list.listIterator();
 
+        System.out.println("===== Going forwards =====");
         while (iterator.hasNext()) {
             String item = iterator.next();
             System.out.println("Forward: " + item);
@@ -27,6 +28,7 @@ public class ListIteratorExercise {
         }
         System.out.println();
 
+        System.out.println("===== Going backwards =====");
         while (iterator.hasPrevious()) {
             System.out.println("Current List: " + list + ", size: " + list.size());
 
@@ -34,7 +36,10 @@ public class ListIteratorExercise {
             String item = iterator.previous();
             System.out.println("index: " + index + ", Item: " + item);
 
-//            System.out.println("Reverse: " + item);
+            iterator.set(item + " (updated1)"); // Can be called multiple times
+            System.out.println("List after 1st update: " + list + ", size: " + list.size());
+            iterator.set(item + " (updated2)");
+            System.out.println("List after 2nd update: " + list + ", size: " + list.size());
 
             iterator.remove(); // Must be called ONCE and AFTER a call to next() or previous()
             System.out.println("List after 1st removal: " + list + ", size: " + list.size());
